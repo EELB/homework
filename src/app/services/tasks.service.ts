@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { NewTask, task } from '../model';
+import { NewTask, Task } from '../model';
 import { DUMMY_TASKS } from '../data';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { DUMMY_TASKS } from '../data';
 })
 export class TasksService {
 
-  private tasks : task [] = DUMMY_TASKS
+  private tasks : Task[] = DUMMY_TASKS
 
   constructor() { 
     const tasks = localStorage.getItem('tasks')
@@ -25,11 +25,11 @@ export class TasksService {
   }
 
   removeTask = (id: string) => {
-    this.tasks = this.tasks.filter(item => item.id !== id)
+    this.tasks = this.tasks.filter((item) => item.id !== id)
     this.persistTasks()
   }
 
-  getTask = (id:string) =>{
+  getTask = (id: string) =>{
     return this.tasks.filter(item => item.subjectId === id)
   }
 

@@ -1,4 +1,4 @@
-import { Subject, task } from '../model';
+import { Subject, Task } from '../model';
 
 export const SUBJECTS_INFO: Subject[] = [
   {
@@ -38,7 +38,7 @@ export const SUBJECTS_INFO: Subject[] = [
   },
 ];
 
-export const DUMMY_TASKS: task [] = [
+export const DUMMY_TASKS: Task [] = [
   {
     id: 't1',
     subjectId: 'u1',
@@ -54,4 +54,11 @@ export const DUMMY_TASKS: task [] = [
     summary: 'Build a first prototype of Videogame',
     dueDate: new Date('2024-09-28'),
   },
+  {
+    id: 't3',
+    subjectId: 'u5',
+    title: 'Create a Videogame',
+    summary: 'Create a Videogame with all the features.',
+    dueDate: new Date('2024-09-28'),
+  }
 ];

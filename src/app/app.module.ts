@@ -9,6 +9,8 @@ import { CommonHeaderComponent } from './components/shared/common-header/common-
 import { TasksComponent } from './components/tasks/tasks.component';
 import { FormTaskComponent } from './components/tasks/form-task/form-task.component';
 import { TaskComponent } from './components/tasks/task/task.component';
+import { FormsModule } from '@angular/forms';
+import { FieldMessageErrorComponent } from './components/shared/field-message-error/field-message-error.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,11 @@ import { TaskComponent } from './components/tasks/task/task.component';
     CommonHeaderComponent,
     TasksComponent,
     FormTaskComponent,
-    TaskComponent
+    TaskComponent,
+    FieldMessageErrorComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,5 +1,5 @@
 import { Component, inject, Input } from '@angular/core';
-import { task } from '../../../model';
+import { Task } from '../../../model';
 import { TasksService } from '../../../services/tasks.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { TasksService } from '../../../services/tasks.service';
 })
 export class TaskComponent {
 
-  @Input({required: true}) task!: task
+  @Input() task!: Task
 
   private taskService = inject(TasksService)
 

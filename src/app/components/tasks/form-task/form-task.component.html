@@ -1,1 +1,92 @@
-<p>form-task works!</p>
+<pre>{{ NewTask | json }}</pre>
+
+<!-- Header -->
+<Header class="w-full">
+  <app-common-header primaryText="Nueva tarea"></app-common-header>
+</Header>
+
+<!-- Formulario -->
+<form
+  (submit)="handleSubmit(formulario)"
+  class="max-w-screen-lg mx-auto py-4"
+  #formulario="ngForm"
+>
+  <!-- Campo de título -->
+  <div class="mb-5">
+    <label
+      for="title"
+      class="block mb-2 text-sm font-medium text-green-700 dark:text-green-500"
+    >
+      Título
+    </label>
+    <input
+      type="text"
+      id="title"
+      name="title"
+      [(ngModel)]="NewTask.title"
+      #title="ngModel"
+      required
+      minlength="4"
+      class="bg-green-50 border border-green-500 text-green-900 dark:text-green-400 placeholder-green-500 dark:placeholder-green-700 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-green-500"
+    />
+    <app-field-message-error [item]="title" minLength="4" />
+  </div>
+
+  <!-- Campo de resumen -->
+  <div class="mb-5">
+    <label
+      for="summary"
+      class="block mb-2 text-sm font-medium text-green-700 dark:text-green-500"
+    >
+      Summary
+    </label>
+    <textarea
+      id="summary"
+      name="summary"
+      [(ngModel)]="NewTask.summary"
+      #summary="ngModel"
+      required
+      class="bg-green-50 border border-green-500 text-green-900 dark:text-green-400 placeholder-green-500 dark:placeholder-green-700 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-green-500"
+    ></textarea>
+    <app-field-message-error [item]="summary" />
+  </div>
+
+  <!-- Campo de fecha -->
+  <div class="mb-5">
+    <label
+      for="due-date"
+      class="block mb-2 text-sm font-medium text-green-700 dark:text-green-500"
+    >
+      Due Date
+    </label>
+    <input
+      id="due-date"
+      type="date"
+      name="dueDate"
+      placeholder="dd/MM/yyyy"
+      [(ngModel)]="NewTask.dueDate"
+      #duedate="ngModel"
+      required
+      class="bg-green-50 border border-green-500 text-green-900 dark:text-green-400 placeholder-green-500 dark:placeholder-green-700 placeholder-opacity-100 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+    />
+    <app-field-message-error [item]="duedate" />
+  </div>
+
+  <!-- Botones de acción -->
+  <div class="grid md:grid-cols-2 py-5">
+    <button
+      type="submit"
+      class="text-white bg-gradient-to-r from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+    >
+      Ingresar
+    </button>
+
+    <button
+      (click)="handleCancel()"
+      type="button"
+      class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+    >
+      Cancelar
+    </button>
+  </div>
+</form>

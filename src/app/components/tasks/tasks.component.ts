@@ -8,12 +8,21 @@ import { TasksService } from '../../services/tasks.service';
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
+  isAddingTask = false
 
-  @Input({required: true}) subject!: Subject
+  @Input({ required: true }) subject!: Subject
   private taskService = inject(TasksService)
 
-  get tasks (){
+  get tasks () {
     return this.taskService.getTask(this.subject.id)
+  }
+
+  handleAddTask = () => {
+    this.isAddingTask = true
+  }
+
+  handleCancelAddTask = () => {
+    this.isAddingTask = false
   }
 
 }
